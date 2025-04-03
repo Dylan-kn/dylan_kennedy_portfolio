@@ -1,0 +1,27 @@
+body {
+    font-family: 'Robolo', sans-serif;
+    background-color: #eaeef2;
+  }
+  
+  .navbar-custom {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .footer {
+    padding: 2rem 0;
+    background-color: #ffffff;
+    border-top: 1px solid #eaeaea;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #0d6efd;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }

@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-  <div class="text-center">
-    <h1>Introduction</h1>
-    <p>This is my personal portfolio website.</p>
+  <div class="hero-container">
+    <h1 class="display-4">Introduction</h1>
+    <p class="lead">This is my personal portfolio website.</p>
+    <a href="{% url 'project_list' %}" class="btn btn-outline-primary mt-3">My Projects</a>
   </div>
 {% endblock %}
