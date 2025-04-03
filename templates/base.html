@@ -1,0 +1,23 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dylan Kennedy{% endblock %%}</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'projects:project_list' %}">Projects</a>
+        <a href="{% url 'resume' %}">Resume</a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </nav>
+
+    <main>{% block content %}{% endblock %}</main>
+
+    <footer>
+        <p>&copy; 2025 Dylan Kennedy</p>
+    </footer>
+</body>
+</html>
