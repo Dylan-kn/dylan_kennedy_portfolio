@@ -7,7 +7,7 @@
     {% for project in projects %}
       <div class="project-card">
         {% if project.image %}
-          <img src="{{ project.image.url }}" alt="{{ project.title }}">
+          <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}" style="height: 350px; object-fit: cover;">
         {% endif %}
         <h2>{{ project.title }}</h2>
         <p>{{ project.tech_stack }}</p>
