@@ -10,6 +10,8 @@ class Project(models.Model):
     image = models.ImageField(upload_to='project_images/', blank=True, null=True)
     is_featured = models.BooleanField(default=False)
     slug = models.SlugField(unique=True, blank=True)
+    ordering_index = models.PositiveIntegerField(default=0)
+
 
 
     def save(self, *args, **kwargs):
