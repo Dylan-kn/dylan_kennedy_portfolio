@@ -1,9 +1,77 @@
 {% extends 'base.html' %}
 {% block title %}Home{% endblock %}
 {% block content %}
-  <div class="hero-container">
-    <h1 class="display-4">Introduction</h1>
-    <p class="lead">This is my personal portfolio website.</p>
-    <a href="{% url 'project_list' %}" class="btn btn-outline-primary mt-3">My Projects</a>
+  <div class="hero p-5 rounded shadow-sm text-center">
+    <h1 class="display-5 fw-bold mb-3">Dylan Kennedy</h1>
+    <p class="lead mb-4">I'm a backend-focused software engineering blending creative, business and real-world experience. 
+      I have a background in founding, music production, the wine industry and executive events, and have developed
+      a keen sense for problem-solving. Over the past year, I have focused in on Python, AI, security engineering, 
+      and web development.
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <a href="{% url 'project_list' %}" class="btn btn-outline-primary mt-3">View My Projects</a>
+      <a href="{% url 'about' %}" class="btn btn-outline-primary mt-3">More About Me</a>
+    </div>
   </div>
+
+  <div class="mt-5 mb-4 text-center">
+    <h2 class="h4 fw-bold">A little about me</h2>
+    <p class="mx-auto" style="max-width: 720px;">
+      I started my professional journey in the music and wine industries, before focusing on business, management, and eventually
+      software engineering. I have since become increasingly interested in Python, Backend web development, AI, and security engineering. 
+      I have always had a passion for learning new technologies and am eager to be at the cutting edge of innovation. 
+    </p>
+    <a href="{% url 'about' %}" class="btn btn-sm btn-outline-primary">Read More About My Background<a/>
+  </div>
+
+  <div class="mt-5">
+    <h2 class="h4 fw-bold text-center mb-4">Some of My Projects</h2>
+    <div class="row">
+      {% for project in projects %}
+        <div class="col md-6 mb-4">
+          <div class="card h-600 shadow-sm">
+            {% if project.image %}
+              <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}" style="height: 200px; object-fit: cover;">
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ project.title }}</h5>
+              <p class="card-text">{{ project.description|truncatewords:25 }}</p>
+              <p class="text-muted small"><strong>Tech Stack:</strong> {{ project.tech_stack|truncatewords:20 }}</p>
+              <a href="{% url 'project_detail' project.slug %}" class="btn btn-sm btn-outline-primary">View Project</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="text-center mt-3">
+      <a href="{% url 'project_list' %}" class="btn btn-outline-secondary">See All Projects</a>
+    </div>
+  </div>
+
+  <div class="mt-5 text-center">
+    <h2 class="h4 fw-bold mb-4">Tech Stack & Skills</h2>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <span class="badge bg-dark fs-6">Python</span>
+      <span class="badge bg-dark fs-6">Django</span>
+      <span class="badge bg-dark fs-6">SQLite</span>
+      <span class="badge bg-dark fs-6">Cybersecurity Fundamentals</span>
+      <span class="badge bg-dark fs-6">Git/Github</span>
+      <span class="badge bg-dark fs-6">LLM Integration</span>
+      <span class="badge bg-dark fs-6">AI</span>
+      <span class="badge bg-dark fs-6">REST APIs</span>
+      <span class="badge bg-dark fs-6">Resourceful</span>
+      <span class="badge bg-dark fs-6">Versatile</span>
+      <span class="badge bg-dark fs-6">Quick Study</span>
+      <span class="badge bg-dark fs-6">Strategic</span>
+      <span class="badge bg-dark fs-6">Management</span>
+      <span class="badge bg-dark fs-6">Curious </span>
+      <span class="badge bg-dark fs-6">Communication</span>
+      <span class="badge bg-dark fs-6">HTML/CSS/Bootstrap</span>
+    </div>
+  </div>
+
+  <div class="mt-5 py-5 text-center rounded">
+    <p>If you have any questions, would like to connect, or have a role that you think might fit -- I would love to hear from you.</p>
+    <a href="{% url 'contact' %}" class="btn btn-primary mt-2 px-4">Contact Me</a>
+  </div>
+
 {% endblock %}

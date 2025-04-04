@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from projects.models import Project
 
 def home(request):
-    return render(request, 'pages/home.html')
+    featured_projects = Project.objects.filter(is_featured=True)[:2]
+    return render(request, 'pages/home.html', {'projects': featured_projects})
 
 def about(request):
     return render(request, 'pages/about.html')
