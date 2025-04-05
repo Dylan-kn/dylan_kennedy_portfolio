@@ -1,6 +1,18 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Resume{% endblock %}
 {% block content %}
-  <h1>Resume</h1>
-  
+<div class="container text-center">
+
+  <h1 class="mb-4">My Resume</h1>
+  <p class="lead mb-4">View or download my most recent resume below.</p>
+
+  <div class="d-flex flex-column align-items-center">
+    <img src="{% static 'images/Resume_preview_shot.png' %}" alt="Resume Preview" class="img-fluid mb-4" style="max-height: 400px;">
+
+    <a href="{{ resume.pdf.url }}" class="btn btn-primary" target="_blank">
+      View Resume in New Tab
+    </a>
+  </div>
+</div>
 {% endblock %}

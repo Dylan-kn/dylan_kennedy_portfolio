@@ -12,6 +12,11 @@ class Project(models.Model):
     slug = models.SlugField(unique=True, blank=True)
     ordering_index = models.PositiveIntegerField(default=0)
 
+class Resume(models.Model):
+    title = models.CharField(max_length=100, default='My Resume')
+    pdf = models.FileField(upload_to='resumes/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+    slug = models.SlugField(unique=True, blank=True)
 
 
     def save(self, *args, **kwargs):

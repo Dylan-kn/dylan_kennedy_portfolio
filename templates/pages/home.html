@@ -29,15 +29,17 @@
       {% for project in projects %}
         <div class="col md-6 mb-4">
           <div class="card h-600 shadow-sm">
-            {% if project.image %}
-              <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}" style="height: 200px; object-fit: cover;">
-            {% endif %}
-            <div class="card-body">
-              <h5 class="card-title">{{ project.title }}</h5>
-              <p class="card-text">{{ project.description|truncatewords:25 }}</p>
-              <p class="text-muted small"><strong>Tech Stack:</strong> {{ project.tech_stack|truncatewords:20 }}</p>
-              <a href="{% url 'project_detail' project.slug %}" class="btn btn-sm btn-outline-primary">View Project</a>
-            </div>
+            <a href="{% url 'project_detail' project.slug %}" class="text-decoration-none text-dark">
+              {% if project.image %}
+                <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}" style="height: 200px; object-fit: cover;">
+              {% endif %}
+              <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description|truncatewords:25 }}</p>
+                <p class="text-muted small"><strong>Tech Stack:</strong> {{ project.tech_stack|truncatewords:20 }}</p>
+                <a href="{% url 'project_detail' project.slug %}" class="btn btn-sm btn-outline-primary">View Project</a>
+              </div>
+            </a>
           </div>
         </div>
       {% endfor %}
