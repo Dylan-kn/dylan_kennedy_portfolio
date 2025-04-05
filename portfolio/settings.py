@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUDEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'https://dylan-kennedy-portfolio.onrender.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
