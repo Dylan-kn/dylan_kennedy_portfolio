@@ -23,7 +23,7 @@ from pages import views as pages_views
 urlpatterns = [
     path('', pages_views.home, name='home'),
     path('about/', pages_views.about, name='about'),
-    path('resume/', pages_views.resume, name='resume'),
+    path('resume/', pages_views.resume_view, name='resume'),
     path('contact/', pages_views.contact, name='contact'),
     path('admin/', admin.site.urls),
     path('projects/', include('projects.urls')),

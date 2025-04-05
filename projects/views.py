@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Project, Resume
+from .models import Project
 
 def project_list(request):
     projects = Project.objects.all().order_by('ordering_index')
@@ -12,8 +12,3 @@ def project_detail(request, slug):
         'project': project,
         'tech_stack_list': tech_stack_list
     })
-
-def resume(request):
-    resume = Resume.objects.latest('uploaded_at')
-    print(resume.pdf.url)
-    return render(request, 'pages/resume.html', {'resume': resume})
