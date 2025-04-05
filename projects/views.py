@@ -7,7 +7,8 @@ def project_list(request):
 
 def project_detail(request, slug):
     project = get_object_or_404(Project, slug=slug)
-    return render(request, 'projects/project_detail.html', {'project': project})
-
-
-
+    tech_stack_list = [tech.strip() for tech in project.tech_stack.split(',')]
+    return render(request, 'projects/project_detail.html', {
+        'project': project,
+        'tech_stack_list': tech_stack_list
+    })
