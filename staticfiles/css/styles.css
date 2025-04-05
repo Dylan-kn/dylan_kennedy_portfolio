@@ -1,0 +1,66 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F7F7F2;
+    font-weight: 200;
+  }
+  
+  .navbar-custom {
+    background-color: #F7F7F2;
+    border-bottom: 1px solid #eaeaea;
+  }
+  
+  .footer {
+    padding: 2rem 0;
+    background-color: #C6DABF;
+    border-top: 1px solid #eaeaea;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #0d6efd;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .hero {
+    background-color: #F7F7F1;
+    margin-bottom: 3rem;
+    border-radius: 12px;
+  }
+
+  .card-text {
+    min-height: 80px;
+  }
+
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .card-img-top {
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover .card-img-top {
+    transform: scale(1.02);
+  }
+
+  .badge {
+    padding: 0.6em 1em;
+    font-weight: 500;
+    border-radius: 999px;
+  }
+
+  .badge:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.1);
+  }
+
+  
