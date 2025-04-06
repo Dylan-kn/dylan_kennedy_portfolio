@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
-from cloudinary_storage.storage import RawMediaCloudinaryStorage
+from cloudinary_storage.storage import MediaCloudinaryStorage, RawMediaCloudinaryStorage
 
 class Project(models.Model): 
     title = models.CharField(max_length=100)
@@ -8,7 +8,7 @@ class Project(models.Model):
     tech_stack = models.CharField(max_length=200)
     github_link = models.URLField()
     live_demo_link = models.URLField(blank=True, null=True)
-    image = models.ImageField(upload_to='project_images/', blank=True, null=True)
+    image = models.ImageField(upload_to='project_images/', blank=True, null=True, storage=MediaCloudinaryStorage())
     is_featured = models.BooleanField(default=False)
     slug = models.SlugField(unique=True, blank=True)
     ordering_index = models.PositiveIntegerField(default=0)
