@@ -12,6 +12,7 @@ def about(request):
     return render(request, 'pages/about.html')
 
 def resume_view(request):
+    print("Incoming Host:", request.get_host())
     resume = Resume.objects.latest('uploaded_at')
     return render(request, 'pages/resume.html', {'resume': resume})
 
