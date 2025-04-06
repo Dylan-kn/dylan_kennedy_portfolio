@@ -1,6 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
-from cloudinary_storage.storage import MediaCloudinaryStorage
+from cloudinary_storage.storage import RawMediaCloudinaryStorage
 
 class Project(models.Model): 
     title = models.CharField(max_length=100)
@@ -15,7 +15,7 @@ class Project(models.Model):
 
 class Resume(models.Model):
     title = models.CharField(max_length=100, default='My Resume')
-    pdf = models.FileField(upload_to='resumes/', storage=MediaCloudinaryStorage())
+    pdf = models.FileField(upload_to='resumes/', storage=RawMediaCloudinaryStorage())
     uploaded_at = models.DateTimeField(auto_now_add=True)
     slug = models.SlugField(unique=True, blank=True)
 
