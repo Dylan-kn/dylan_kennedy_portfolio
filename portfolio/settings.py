@@ -147,3 +147,6 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+print("Cloudinary Storage:", DEFAULT_FILE_STORAGE)
+print("Cloud Name:", config('CLOUDINARY_CLOUD_NAME', default='Not Set'))
