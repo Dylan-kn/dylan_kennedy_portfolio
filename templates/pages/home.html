@@ -53,22 +53,11 @@
   <div class="mt-5 text-center">
     <h2 class="h4 fw-bold mb-4">Tech Stack & Skills</h2>
     <div class="d-flex flex-wrap justify-content-center gap-3">
-      <span class="badge bg-dark fs-6">Python</span>
-      <span class="badge bg-dark fs-6">Django</span>
-      <span class="badge bg-dark fs-6">SQLite</span>
-      <span class="badge bg-dark fs-6">Cybersecurity Fundamentals</span>
-      <span class="badge bg-dark fs-6">Git/Github</span>
-      <span class="badge bg-dark fs-6">LLM Integration</span>
-      <span class="badge bg-dark fs-6">AI</span>
-      <span class="badge bg-dark fs-6">REST APIs</span>
-      <span class="badge bg-dark fs-6">Resourceful</span>
-      <span class="badge bg-dark fs-6">Versatile</span>
-      <span class="badge bg-dark fs-6">Quick Study</span>
-      <span class="badge bg-dark fs-6">Strategic</span>
-      <span class="badge bg-dark fs-6">Management</span>
-      <span class="badge bg-dark fs-6">Curious </span>
-      <span class="badge bg-dark fs-6">Communication</span>
-      <span class="badge bg-dark fs-6">HTML/CSS/Bootstrap</span>
+      <ul class="list-inline"> 
+        {% for skill in skills %}
+          <span class="badge bg-primary"> {{ skill.name }} </span>
+        {% endfor %}
+      </ul>
     </div>
   </div>
 

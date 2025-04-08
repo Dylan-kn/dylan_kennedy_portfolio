@@ -2,11 +2,12 @@ from django.shortcuts import render, redirect
 from .forms import ContactForm
 from projects.models import Project, Resume
 from django.contrib import messages
-from .models import ContactMessage
+from .models import ContactMessage, Skills
 
 def home(request):
     featured_projects = Project.objects.filter(is_featured=True)[:2]
-    return render(request, 'pages/home.html', {'projects': featured_projects})
+    skills = Skills.objects.filter(show_on_homepage=True)
+    return render(request, 'pages/home.html', {'projects': featured_projects}, {'skills': skills})
 
 def about(request):
     return render(request, 'pages/about.html')
