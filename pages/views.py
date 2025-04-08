@@ -7,7 +7,10 @@ from .models import ContactMessage, Skills
 def home(request):
     featured_projects = Project.objects.filter(is_featured=True)[:2]
     skills = Skills.objects.filter(show_on_homepage=True)
-    return render(request, 'pages/home.html', {'projects': featured_projects}, {'skills': skills})
+    return render(request, 'pages/home.html', {
+        'projects': featured_projects,
+        'skills': skills
+        })
 
 def about(request):
     return render(request, 'pages/about.html')
