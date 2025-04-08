@@ -6,9 +6,11 @@ class ContactMessage(models.Model):
     message = models.TextField()
     submitted_at = models.DateTimeField(auto_now_add=True)
 
-class Skills(models.Model):
+
+class Skill(models.Model):
     name = models.CharField(max_length=100)
     show_on_homepage = models.BooleanField(default=True)
+
 
     def __str__(self):
         return f"{self.name} - {self.submitted_at.strftime('%Y-%m-%d %H:%M')}"
