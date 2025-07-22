@@ -2,6 +2,11 @@ from django.db import models
 from django.utils.text import slugify
 from cloudinary_storage.storage import MediaCloudinaryStorage, RawMediaCloudinaryStorage
 
+PROJECT_TYPES = [
+    ('pm', 'Project Management'),
+    ('dev', 'Development'),
+]
+
 class Project(models.Model): 
     title = models.CharField(max_length=100)
     description = models.TextField()
@@ -12,6 +17,11 @@ class Project(models.Model):
     is_featured = models.BooleanField(default=False)
     slug = models.SlugField(unique=True, blank=True)
     ordering_index = models.PositiveIntegerField(default=0)
+    project_type = models.CharField(
+        max_length=10,
+        choices=PROJECT_TYPES,
+        default='dev'
+    )
 
 class Resume(models.Model):
     title = models.CharField(max_length=100, default='My Resume')
