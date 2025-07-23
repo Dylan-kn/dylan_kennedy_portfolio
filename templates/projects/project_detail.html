@@ -4,6 +4,15 @@
 {% block content %}
 <div class="container mt-4">
   <h1 class="display-5 mb-3 text-center">{{ project.title }}</h1>
+
+  <div class="text-center mb-3">
+  {% if project.project_type == 'pm' %}
+    <span class="badge bg-primary fs-6">Project Management</span>
+  {% elif project.project_type == 'dev' %}
+    <span class="badge bg-secondary fs-6">Technical Project</span>
+  {% endif %}
+  </div>
+
   {% if project.image %}
   <div class="text-center mb-4">
     <img src="{{ project.image.url }}" class="img-fluid mb-3" alt="{{ project.title }}" style="max-height: 400px; object-fit: contain;">

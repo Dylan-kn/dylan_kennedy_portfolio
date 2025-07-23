@@ -6,8 +6,11 @@
   <p class="lead mb-4 text-center">This is my continuously updated project page to showcase my work</p>
   <p class="text-center text-muted mb-4">Most recent projects appear first.</p>
 
-  <div class="row row-cols-1 row-cols-md-2 g-4">
-    {% for project in projects %}
+  <!-- Project Management & Ops Projects -->
+<h2 class="mb-4 text-center">Project Management & Operations</h2>
+<div class="row row-cols-1 row-cols-md-2 g-4 mb-5">
+  {% for project in projects %}
+    {% if project.project_type == 'pm' %}
       <div class="col">
         <div class="card h-100 shadow-sm border-0">
           <a href="{% url 'project_detail' project.slug %}" class="text-decoration-none text-dark">
@@ -16,13 +19,37 @@
             {% endif %}
             <div class="card-body d-flex flex-column">
               <h5 class="card-title">{{ project.title }}</h5>
+              <p class="card-text text-muted" style="min-height: 60px;">
+                {{ project.description|truncatewords:25 }}
+              </p>
+              <p class="text-muted small mb-3"><strong>Tools:</strong> {{ project.tech_stack }}</p>
+              <div class="mt-auto text-end">
+                <span class="btn btn-sm btn-outline-primary">View Project</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
 
-              {% if project.description %}
-                <p class="card-text text-muted" style="min-height: 60px;">
-                  {{ project.description|truncatewords:25 }}
-                </p>
-              {% endif %}
-
+<!-- Development Projects -->
+<h2 class="mb-4 text-center">Technical Projects</h2>
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  {% for project in projects %}
+    {% if project.project_type == 'dev' %}
+      <div class="col">
+        <div class="card h-100 shadow-sm border-0">
+          <a href="{% url 'project_detail' project.slug %}" class="text-decoration-none text-dark">
+            {% if project.image %}
+              <img src="{{ project.image.url }}" class="card-img-top" alt="{{ project.title }}" style="height: 200px; object-fit: cover;">
+            {% endif %}
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">{{ project.title }}</h5>
+              <p class="card-text text-muted" style="min-height: 60px;">
+                {{ project.description|truncatewords:25 }}
+              </p>
               <p class="text-muted small mb-3"><strong>Stack:</strong> {{ project.tech_stack }}</p>
               <div class="mt-auto text-end">
                 <span class="btn btn-sm btn-outline-primary">View Project</span>
@@ -31,7 +58,8 @@
           </a>
         </div>
       </div>
-    {% endfor %}
-  </div>
+    {% endif %}
+  {% endfor %}
+</div>
 {% endblock %}
 
