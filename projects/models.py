@@ -11,7 +11,7 @@ class Project(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     tech_stack = models.CharField(max_length=200)
-    github_link = models.URLField()
+    github_link = models.URLField(blank=True, null=True)
     live_demo_link = models.URLField(blank=True, null=True)
     image = models.ImageField(upload_to='project_images/', blank=True, null=True, storage=MediaCloudinaryStorage())
     is_featured = models.BooleanField(default=False)
